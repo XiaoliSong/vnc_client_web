@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>Vnc</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="Expires" content="0">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-control" content="no-cache">
+	<meta http-equiv="Cache" content="no-cache">
+	<meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	
+	<link rel="stylesheet" href="./index.css" type="text/css" />
+	<link rel="stylesheet" href="./login_reg.css" type="text/css" />
+	<link rel="stylesheet" href="./online_list.css" type="text/css" />
+	<link rel="stylesheet" href="./file_upload.css" type="text/css" />
+	<link rel="stylesheet" href="./file.css" type="text/css" />
+	<link rel="stylesheet" href="./person_info.css" type="text/css" />
+	<link rel="stylesheet" href="./online.css" type="text/css" />
+</head>
+<body oncontextmenu="return false;">
+	<div id="login_reg">
+		<div id="login_view">
+			<h1><a href="./">Vnc Viewer</a></h1>  
+			<form>
+				<input type="text" id="login_id" name="login_id" class="login_reg_input" placeholder="帐号" />
+				<input type="password" id="login_pw" name="login_pw" class="login_reg_input" placeholder="密码" />
+			</form>
+			
+			<button onclick="login()" class="login_reg_btn">登录</button>
+			<br />
+				<button onclick="to_reg_view()" class="login_reg_link">注册</button>
+			<br />
+			
+			<p id="login_noti">连接本地服务器中......</p>
+		</div>
+		
+		<div id="reg_view">
+			<h1><a href="./">Vnc Viewer</a></h1>  
+			<form id="reg_form">
+				<input type="text" id="reg_id" name="reg_id" class="login_reg_input" placeholder="新帐号" />
+				<input type="password" id="reg_pw" name="reg_pw" class="login_reg_input" placeholder="密码" />
+				<input type="password" id="reg_key" name="reg_key" class="login_reg_input" placeholder="注册码" />
+			</form>
+			
+			<button onclick="reg()" class="login_reg_btn">注册</button>
+			
+			<br />
+				<button onclick="to_login_view()" class="login_reg_link">登录</button>
+			<br />
+			<p id="reg_noti"></p>
+		</div>
+	</div>
+	
+	<div id="main">
+		
+		<div id="side_bar">
+			<ul>
+				<li><button  id="to_online_list_btn" onclick="to_online_list()">在线聊天</button></li>
+				<li><button id="to_upload_file_btn" onclick="to_upload_file()">上传文件</button></li>
+				<li><button id="to_public_file_btn" onclick="to_public_file()">公共文件</button></li>
+				<li><button id="to_person_file_btn" onclick="to_person_file()">个人文件</button></li>
+				<li><button id="to_person_info_btn" onclick="to_person_info()">个人信息</button></li>
+			</ul>
+		</div>
+		
+		<div id="online_list" class="right_area">
+			<ul id="online_list_wrap">
+				<li onclick="to_group_msg_wrap();">群聊</li>
+			</ul>
+			
+			<div id="msg_wrap">
+				
+				<h3 id="msg_id_name">群聊</h3>
+				
+				<div id="share_btns">
+					<div id="group_share_btns">
+						<select id="view_ask_select" class="share_select">
+							<option value="手动同意任何人查看">手动同意任何人查看</option>
+							<option value="自动同意任何人查看">自动同意任何人查看</option>
+							<option value="自动拒绝任何人查看">自动拒绝任何人查看</option>
+						</select>
+						
+						<button class="vnc_control_btn" id="view_btn" onclick="view()" title="（申请）查看对方桌面">申请查看</button>
+						<button class="vnc_control_btn" id="control_btn" onclick="control()" title="（控制）查看对方桌面">申请控制</button>
+						
+						<button class="vnc_control_btn" id="run_stop_share_btn" onclick="run_stop_share();" title="开始/停止向对方发送自己的屏幕信息">开始共享</button>
+						
+						<button class="vnc_control_btn" id="push_view_btn" onclick="push_view()" title="向对方推送查看自己的桌面/关闭对方查看自己的桌面（同时关闭控制）">推送查看</button>
+						<button class="vnc_control_btn" id="push_control_btn" onclick="push_control()"title="向对方推送控制自己的桌面/关闭对方控制自己的桌面（但是对方仍可以查看）">推送控制</button>
+						
+						<select id="control_ask_select" class="share_select">
+							<option value="手动同意任何人控制">手动同意任何人控制</option>
+							<option value="自动同意任何人控制">自动同意任何人控制</option>
+							<option value="自动拒绝任何人控制">自动拒绝任何人控制</option>
+						</select>
+					</div>
+
+
+				</div>
+				
+				<div id="msg_content"></div>
+				
+				<textarea id="send_msg_content"></textarea>
+				
+				<button id="send_msg_btn" onclick="send_msg()">发送</button>
+			</div>
+		</div>
+		
+		<div id="upload_file">
+			<form method="POST" enctype="multipart/form-data" name="upload_form" id="upload_form">
+				<label for="file">文件名：</label>
+				<input type="file" name="file" id="file"/><br>
+				<input type="submit" name="submit" value="提交上传">
+			</form>
+			<p id="upload_file_noti"></p>
+		</div>
+		
+		<div id="public_file" class="right_area" >
+			<table id="public_file_table" class="file_table">
+				<tr>
+					<th>日期</th>
+					<th>上传人</th>
+					<th>文件</th>
+				</tr>
+				
+			</table>
+			
+			<nav id="public_file_pagination" class="file_pagination">
+				<button onclick="public_file_fisrt_page()" class="file_first_page">首页</button>
+				<button id="public_file_former_page" onclick="public_file_former_page()" class="file_former_page">« 上一页</button>
+				<span id="public_file_page_noti"></span>
+				<button id="public_file_next_page" onclick="public_file_next_page()" class="file_next_page">下一页 »</button>
+				<button onclick="get_public_file();" class="file_refresh">刷新</button>
+			</nav>
+			
+			<p id="public_file_noti" class="file_noti"></p>
+		</div>
+		
+		<div id="person_file" class="right_area">
+			<table id="person_file_table" class="file_table">
+				<tr>
+					<th>日期</th>
+					<th>文件</th>
+					<th>操作</th>
+				</tr>
+			</table>
+				
+			<nav id="person_file_pagination" class="file_pagination">
+				<button onclick="person_file_fisrt_page()" class="file_first_page">首页</button>
+				<button id="person_file_former_page" onclick="person_file_former_page()" class="file_former_page">« 上一页</button>
+				<span id="person_file_page_noti"></span>
+				<button id="person_file_next_page" onclick="person_file_next_page()" class="file_next_page">下一页 »</button>
+				<button onclick="get_person_file();" class="file_refresh">刷新</button>
+			</nav>
+			
+			<p id="person_file_noti" class="file_noti"></p>
+		</div>
+		
+		<div id="person_info" class="right_area">
+			<form id="person_info_changepw_form">
+				<input type="password" id="person_info_old_pw" class="person_info_pw" placeholder="旧密码"/>
+				<input type="password" id="person_info_new_pw" class="person_info_pw" placeholder="新密码"/>
+				<input type="password" id="person_info_new_pw_confirm" class="person_info_pw" placeholder="确认新密码"/>
+			</form>
+			<button id="person_info_changepw_btn" onclick="person_info_changepw()">修改密码</button>
+			<p id="person_info_noti"></p>
+		</div>
+	</div>
+
+	<script src="./fun.js"></script>
+	<script src="./ws.js"></script>
+	<script src="./sha1.js"></script>
+	<script src="./login_reg.js"></script>
+	<script src="./online.js"></script>
+	<script src="./file_upload.js"></script>
+	<script src="./file_public.js"></script>
+	<script src="./file_person.js"></script>
+	<script src="./person_info.js"></script>
+</body>
+</html>

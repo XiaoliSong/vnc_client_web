@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>关闭网页确认-柯乐义</title><base target="_blank" />
+</head>
+<body onbeforeunload="javascript:window.opener=null;window.open('','_self');window.close();" type="button" value="关闭页面"">
+	<p>66666666666666</p>
+	<div><input onclick="javascript:window.opener=null;window.open('','_self');window.close();" type="button" value="关闭页面"/></div>
+	<script>
+	/*
+	  if(window.Notification && Notification.permission !== "denied") {
+			Notification.requestPermission(function(status) {    // 请求权限
+				if(status === 'granted') {
+					// 弹出一个通知
+					var n = new Notification('Title', {
+						body : 'I am a Notification',
+						icon : './images/test1.png'
+					});
+					// 两秒后关闭通知
+					setTimeout(function() {
+						n.close();
+					}, 2000);
+				}
+			});
+		}
+	*/
+	</script>
+</body>
+</html>

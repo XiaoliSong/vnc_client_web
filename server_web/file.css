@@ -1,0 +1,41 @@
+.file_table{
+	box-sizing:border-box;
+	width:100%;
+	border:solid 1px black;
+	border-collapse:collapse;
+	border-spacing:10;
+	max-height:520px;
+	
+}
+
+
+.file_table td,th{
+	text-align:left;
+	padding:10px 30px;
+}    
+.file_table td,th:first-child{
+	max-width:150px;
+	text-align:left;
+	padding:10px 30px;
+}                                                                   
+
+.file_pagination{
+	padding:10px 0;
+	text-align:center;
+}
+
+.file_former_page{
+	visibility:hidden;
+	margin:0 50px;
+}
+
+.file_next_page{
+	visibility:hidden;
+	margin:0 50px;
+}
+
+.file_noti{
+	text-align:center;
+	font-size:18x;
+	color:red;
+}

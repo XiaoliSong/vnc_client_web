@@ -1,0 +1,28 @@
+#person_info{
+	margin-top:150px;
+}
+
+.person_info_pw{
+	display:block;
+	margin:20px auto;
+	width:200px;
+	height:20px;
+	padding:5px 10px;
+}
+
+#person_info_changepw_btn{
+	display:block;
+	margin:20px auto;
+	width:100px;
+	height:30px;
+}
+
+#person_info_changepw_btn:hover{
+	background:#D0D0D0;
+	cursor:pointer;
+	border:#A0A0A0 1px solid;
+}
+
+#person_info_noti{
+	text-align:center;
+}

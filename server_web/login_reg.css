@@ -1,0 +1,58 @@
+#login_reg{
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:300px;
+	height:300px;
+	margin:-200px 0 0 -150px;
+	text-align:center;
+}
+
+#login_reg h1 a{
+	text-decoration:none;
+}
+#login_reg h1 a:hover{
+	opacity:0.7;
+}
+
+#login_reg .login_reg_input{
+	border:2px solid  #11AAFF;
+	margin:20px 0;
+	padding:0 20px;
+	display:block;
+	width:260px;
+	height:30px;
+}
+#login_reg .login_reg_btn{
+	display:block;
+	background:#11AAFF;
+	width:302px;
+	border:none;
+	height:40px;
+	cursor:pointer;
+}
+
+#login_reg .login_reg_btn:hover{
+	opacity:0.7;
+}
+
+#login_reg .login_reg_link{
+	background:none;
+	font-size:16px;
+	color:blue;
+	border:none;
+}
+
+#login_reg .login_reg_link:hover{
+	border:none;
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+#reg_view{
+	display:none;
+}
+
+
+
+

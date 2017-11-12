@@ -1,0 +1,23 @@
+﻿  Uic'ing vnc_client.ui...
+  File 'F:\Study\编程\QtVnc\vnc_client _web\vnc_client_web\vnc_client.ui' is not valid
+  Moc'ing msg_server.h...
+  Moc'ing app.h...
+  Moc'ing vnc_app.h...
+  Rcc'ing vnc_client_web.qrc...
+RCC : warning : No resources in 'F:\Study\缂栫▼\QtVnc\vnc_client _web\vnc_client_web\vnc_client_web.qrc'.
+  
+  encoder.cpp
+  moc_app.cpp
+  moc_msg_server.cpp
+  moc_vnc_app.cpp
+  grabber.cpp
+  app.cpp
+  main.cpp
+  msg_server.cpp
+  fun.cpp
+  timer.cpp
+  vnc_app.cpp
+vnc_app.cpp(96): warning C4838: 从“int”转换到“unsigned short”需要收缩转换
+  正在生成代码...
+  qrc_vnc_client_web.cpp
+  vnc_client_web.vcxproj -> F:\Study\编程\QtVnc\vnc_client _web\Win32\Release\vnc_client_web.exe

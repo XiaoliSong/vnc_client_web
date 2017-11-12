@@ -1,0 +1,51 @@
+
+#online_list_table{
+	box-sizing:border-box;
+	width:100%;
+	padding:10px;
+	max-height:440px;
+	position:absolute;
+	top:10px;
+	border-collapse:collapse;
+	border-spacing:10;
+}
+
+#online_list_table th,td{
+	width:auto;
+	margin:0;
+	padding:0;
+}
+
+
+
+#msg_table{
+	width:100%;
+	max-height:150px;
+	position:absolute;
+	top:350px;
+	word-wrap:break-word; 
+	word-break:break-all;
+}
+
+#msg_table td,th{
+	margin:0;
+	padding:0;
+	text-align:left;
+	word-wrap:break-word; 
+	word-break:break-all;
+}
+
+
+
+
+
+
+#fun_switch_btn_wrap{
+	width:100%;
+	position:absolute;
+	top:550px;
+	text-align:center;
+}
+#run_stop_share_btn{
+	margin:0 20px;
+}
